@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
 import './App.css';
+import Axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList.jsx';
 
 class App extends Component {
+
+  state = {
+    galleryList: []
+  }
+
+  componentDidMount() {
+    console.log('wipee');
+    this.getGalleryList()
+    
+  }
+
+  getGalleryList = () => {
+    Axios.get('/gallery')
+    .then((galleryItems) => {
+      console.log('hmmm')
+      this.setState({
+        galleryList: galleryItems.data
+      })
+      console.log(this.state.galleryList)
+    }) .catch((error) => {
+      console.log(error)
+    })
+    
+    }
+
+  
+
+
+
   render() {
     return (
       <div className="App">
@@ -9,8 +40,10 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
+      
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <GalleryList galleryList={this.state.galleryList}/>
+        
       </div>
     );
   }
