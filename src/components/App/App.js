@@ -12,26 +12,26 @@ class App extends Component {
   componentDidMount() {
     console.log('wipee');
     this.getGalleryList()
-    
+
   }
 
   getGalleryList = () => {
     Axios.get('/gallery')
-    .then((galleryItems) => {
-      console.log('hmmm')
-      this.setState({
-        galleryList: galleryItems.data
+      .then((galleryItems) => {
+        console.log('hmmm')
+        this.setState({
+          galleryList: galleryItems.data
+        })
+        console.log(this.state.galleryList)
+      }).catch((error) => {
+        console.log(error)
       })
-      console.log(this.state.galleryList)
-    }) .catch((error) => {
-      console.log(error)
-    })
-    
-    }
+  }
 
-  
-
-
+  smashThatLikeButton = (id) => {
+    console.log('wahoooooooooo', id)
+    Axios.put(`/gallery/${id}`), {}
+  }
 
   render() {
     return (
@@ -39,11 +39,13 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
-        <br/>
-      
+        <br />
+
         <p>Gallery goes here</p>
-        <GalleryList galleryList={this.state.galleryList}/>
-        
+        <GalleryList 
+        smashThatLikeButton={this.smashThatLikeButton}
+        galleryList={this.state.galleryList} />
+
       </div>
     );
   }
