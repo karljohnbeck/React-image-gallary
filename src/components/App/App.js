@@ -30,7 +30,12 @@ class App extends Component {
 
   smashThatLikeButton = (id) => {
     console.log('wahoooooooooo', id)
-    Axios.put(`/gallery/${id}`), {}
+    Axios.put(`/gallery/like/${id}`)
+    .then(response => {
+      this.getGalleryList()
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
   render() {
@@ -39,7 +44,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
-        <br />
+        <br/>
 
         <p>Gallery goes here</p>
         <GalleryList 
