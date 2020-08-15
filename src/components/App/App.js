@@ -18,7 +18,7 @@ class App extends Component {
   getGalleryList = () => {
     Axios.get('/gallery')
       .then((galleryItems) => {
-        console.log('hmmm')
+        console.log(galleryItems.data)
         this.setState({
           galleryList: galleryItems.data
         })
