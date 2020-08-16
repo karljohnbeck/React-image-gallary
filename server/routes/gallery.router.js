@@ -34,12 +34,23 @@ router.get('/', (req, res) => {
                         ORDER BY "id";`
     pool.query(queryText)
     .then((results) => {
-        console.log
         res.send(results.rows)
     }).catch ((error) => {
         res.sendStatus(500)
     })
     // res.send(galleryItems);
 }); // END GET Route
+
+// POST router
+router.post('/', (req, res) => {
+    const queryText = `INSERT INTO posts (path, description)
+    VALUES ($1, $2);`;
+    pool.query(queryText, [req.body.path, req.body.description])
+    .then((results) => {
+        res.sendStatus(201)
+    }).catch(error => {
+        res.sendStatus(500)
+    })
+})
 
 module.exports = router;

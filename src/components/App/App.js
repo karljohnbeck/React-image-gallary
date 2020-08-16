@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
+import GalleryForm from '../GalleryForm/GalleryForm.jsx'
 
 class App extends Component {
 
   state = {
-    galleryList: []
+    galleryList: [],
   }
 
   componentDidMount() {
-    console.log('wipee');
+    console.log('Je Suis Monte!');
     this.getGalleryList()
 
   }
@@ -38,6 +39,17 @@ class App extends Component {
     })
   }
 
+  addToGallery = (newEntry) => {
+    console.log(newEntry)
+    Axios.post('/gallery', newEntry)
+    .then(response => {
+      this.getGalleryList()
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -45,7 +57,8 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-
+        
+        <GalleryForm addToGallery={this.addToGallery}/>
         <p>Gallery goes here</p>
         <GalleryList 
         smashThatLikeButton={this.smashThatLikeButton}
