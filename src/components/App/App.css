@@ -37,4 +37,15 @@ img {
 
 div {
   display: inline-block;
+  margin: 2%;
+}
+
+button {
+  margin: 0 auto;
+  margin-top: 2%;
+  display: block;
+}
+
+.delete {
+  background-color: lightcoral;
 }
