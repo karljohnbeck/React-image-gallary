@@ -3,6 +3,7 @@ import './App.css';
 import Axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
 import GalleryForm from '../GalleryForm/GalleryForm.jsx'
+import './library/bootstrap.css'
 
 class App extends Component {
 
@@ -62,14 +63,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
         
         <GalleryForm addToGallery={this.addToGallery}/>
-        <p>Gallery goes here</p>
+        <h4>Gallery Display</h4>
         <GalleryList 
         smashThatLikeButton={this.smashThatLikeButton}
         galleryList={this.state.galleryList}

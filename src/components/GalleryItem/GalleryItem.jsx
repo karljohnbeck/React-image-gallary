@@ -15,18 +15,18 @@ class GalleryItem extends Component {
 
     render() {
         return (
-            <div>
-                {this.state.isPicture ? <img onClick={this.toggleState}
+            <div className="pictures">
+                {this.state.isPicture ? <img className="imageDescription" onClick={this.toggleState}
                     src={this.props.galleryArt.path} />
                     : <div className="imageDescription" onClick={this.toggleState} >
-                        <p>{this.props.galleryArt.description}</p>
+                        <h5>{this.props.galleryArt.description}</h5>
                     </div>}
-                <button onClick={() =>
+                <button className="btn btn-primary" onClick={() =>
                     this.props.smashThatLikeButton(this.props.galleryArt.id)} >Like This</button>
 
                 <p>{this.props.galleryArt.likes} people like this!</p>
 
-                <button className="delete" onClick={() => 
+                <button className=" delete btn btn-danger btn-sm" onClick={() => 
                 { this.props.imageDelete(this.props.galleryArt.id) }
                 } >Delete</button>
             </div>

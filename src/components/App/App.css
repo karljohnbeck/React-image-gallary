@@ -23,22 +23,24 @@
 }
 
 img {
-  height: 300px;
-  width: 250px;
+  height: 400px;
+  width: 350px;
   margin: 1%;
 }
 
 .imageDescription {
   background-color: lavender;
-  height: 300px;
-  width: 250px;
+  height: 400px;
+  width: 350px;
   margin: 1%;
+  border-style: solid;
 }
 
-div {
+.pictures {
   display: inline-block;
-  margin: 2%;
+
 }
+
 
 button {
   margin: 0 auto;
@@ -47,5 +49,16 @@ button {
 }
 
 .delete {
-  background-color: lightcoral;
+margin-bottom: 5%;
+}
+
+label {
+  float: left;
+}
+h4 {
+  padding-top: 5%;
+}
+form {
+  display: inline-block;
+
 }
