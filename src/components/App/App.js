@@ -48,6 +48,16 @@ class App extends Component {
       console.log(error)
     })
   }
+    
+    imageDelete = (id) => {
+      console.log('wahoooooooooo', id)
+      Axios.delete(`/gallery/${id}`)
+      .then(response => {
+        this.getGalleryList()
+      }).catch(error => {
+        console.log(error)
+      })
+    };
 
 
   render() {
@@ -62,10 +72,11 @@ class App extends Component {
         <p>Gallery goes here</p>
         <GalleryList 
         smashThatLikeButton={this.smashThatLikeButton}
-        galleryList={this.state.galleryList} />
+        galleryList={this.state.galleryList}
+        imageDelete={this.imageDelete} />
 
       </div>
-    );
+    )
   }
 }
 
