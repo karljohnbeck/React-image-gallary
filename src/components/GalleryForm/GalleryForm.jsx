@@ -34,7 +34,22 @@ class GalleryForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.newEntry)
+    if (!this.state.newEntry.path || !this.state.newEntry.description) {
+      alert('Please fill out all fields.')
+    } else {
+   
     this.props.addToGallery(this.state.newEntry)
+    this.clearInputs();
+    }
+  }
+
+  clearInputs = () => {
+    this.setState({
+      newEntry: {
+        path: '',
+        description: ''
+      }
+    })
   }
 
   render() {
@@ -48,7 +63,8 @@ class GalleryForm extends Component {
         </div>
         <div className="form-group">
           <label for="imagePath">Image Description</label>
-          <input className="form-control" id="imageDescription" placeholder="This is my cat!" onChange={this.storeDescription} />
+          <input className="form-control" id="imageDescription" placeholder="This is my cat!" 
+          onChange={this.storeDescription} value={this.state.newEntry.description}/>
 
         </div>
         <input type="submit" value="submit" />
