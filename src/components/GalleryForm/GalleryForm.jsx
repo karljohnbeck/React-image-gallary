@@ -3,6 +3,7 @@ import Axios from "axios";
 
 class GalleryForm extends Component {
 
+  // state used to store input field values
   state = {
     newEntry: {
       path: '',
@@ -10,6 +11,7 @@ class GalleryForm extends Component {
     }
   }
 
+  // save the path input
   storePath = (event) => {
     this.setState({
       newEntry: {
@@ -18,9 +20,9 @@ class GalleryForm extends Component {
       }
     });
     console.log(this.state.newEntry);
-
   }
 
+  // save the description input
   storeDescription = (event) => {
     this.setState({
       newEntry: {
@@ -31,18 +33,23 @@ class GalleryForm extends Component {
     console.log(this.state.newEntry);
   }
 
+  // add the newEntry to the DOM
   handleSubmit = (event) => {
+    // stop page refresh
     event.preventDefault();
     console.log(this.state.newEntry)
+    // if block to make sure all input fields are filled out 
     if (!this.state.newEntry.path || !this.state.newEntry.description) {
       alert('Please fill out all fields.')
     } else {
-   
+   // if filled out, run the post function in app.js with the newEntry data plugged in
     this.props.addToGallery(this.state.newEntry)
+    // clear inputs fields
     this.clearInputs();
     }
   }
 
+      // clear inputs fields cont.
   clearInputs = () => {
     this.setState({
       newEntry: {

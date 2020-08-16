@@ -6,6 +6,7 @@ class GalleryList extends Component {
     render() {
         return (
             <>
+            {/* loop over the galleryList and make a new item for each object in the list */}
                 {this.props.galleryList.map((galleryArt) => {
                     return (
                         <GalleryItem key={galleryArt.id}

@@ -7,16 +7,18 @@ import './library/bootstrap.css'
 
 class App extends Component {
 
+// the list of image data
   state = {
     galleryList: [],
   }
 
+  // on page load
   componentDidMount() {
     console.log('Je Suis Monte!');
     this.getGalleryList()
-
   }
 
+  // axios, get the image data fro mthe database and store it in galleryList
   getGalleryList = () => {
     Axios.get('/gallery')
       .then((galleryItems) => {
@@ -30,6 +32,7 @@ class App extends Component {
       })
   }
 
+ // whenever you like a image, axios, go and add 1 to the count
   smashThatLikeButton = (id) => {
     console.log('wahoooooooooo', id)
     Axios.put(`/gallery/like/${id}`)
@@ -40,6 +43,8 @@ class App extends Component {
     })
   }
 
+  // axios, put the new image on the database
+  // newEntry comes GalleryForm
   addToGallery = (newEntry) => {
     console.log(newEntry)
     Axios.post('/gallery', newEntry)
@@ -50,6 +55,7 @@ class App extends Component {
     })
   }
     
+  // delete the imiage you clicked on
     imageDelete = (id) => {
       console.log('wahoooooooooo', id)
       Axios.delete(`/gallery/${id}`)
@@ -70,6 +76,7 @@ class App extends Component {
         <br/>
         
         <GalleryForm addToGallery={this.addToGallery}/>
+        
         <h4>Gallery Display</h4>
         <GalleryList 
         smashThatLikeButton={this.smashThatLikeButton}
