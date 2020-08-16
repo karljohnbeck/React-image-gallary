@@ -9,7 +9,7 @@ This project was to create a gallery of images from my life using React. I creat
 
 ## Screen Shot
 
-![sample image]('./public/images/sample.png')
+![sample image]('/public/images/sample.png')
 
 ## Usage
 
