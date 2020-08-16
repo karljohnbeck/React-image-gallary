@@ -1,7 +1,7 @@
 const pg = require('pg');
 const Pool = pg.Pool;
 const config = {
-    database: 'gallery', // the name of the database
+    database: 'react_gallery', // the name of the database
     host: 'localhost', // where is your database
     port: 5432, // the port number for your database, 5432 is the default
     max: 10, // how many connections at one time
