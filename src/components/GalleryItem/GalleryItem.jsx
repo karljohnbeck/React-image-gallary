@@ -24,14 +24,13 @@ class GalleryItem extends Component {
                     : <div className="imageDescription" onClick={this.toggleState} >
                         <h5>{this.props.galleryArt.description}</h5>
                     </div>}
-                    {/* like button, calls function on app.js */}
+                {/* like button, calls function on app.js */}
                 <button className="btn btn-primary" onClick={() =>
                     this.props.smashThatLikeButton(this.props.galleryArt.id)} >Like This</button>
-                        {/* display like count */}
+                {/* display like count */}
                 <p>{this.props.galleryArt.likes} people like this!</p>
-                    {/* delete button for image */}
-                <button className=" delete btn btn-danger btn-sm" onClick={() => 
-                { this.props.imageDelete(this.props.galleryArt.id) }
+                {/* delete button for image */}
+                <button className=" delete btn btn-danger btn-sm" onClick={() => { this.props.imageDelete(this.props.galleryArt.id) }
                 } >Delete</button>
             </div>
         )

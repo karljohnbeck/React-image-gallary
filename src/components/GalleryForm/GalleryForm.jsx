@@ -42,14 +42,14 @@ class GalleryForm extends Component {
     if (!this.state.newEntry.path || !this.state.newEntry.description) {
       alert('Please fill out all fields.')
     } else {
-   // if filled out, run the post function in app.js with the newEntry data plugged in
-    this.props.addToGallery(this.state.newEntry)
-    // clear inputs fields
-    this.clearInputs();
+      // if filled out, run the post function in app.js with the newEntry data plugged in
+      this.props.addToGallery(this.state.newEntry)
+      // clear inputs fields
+      this.clearInputs();
     }
   }
 
-      // clear inputs fields cont.
+  // clear inputs fields cont.
   clearInputs = () => {
     this.setState({
       newEntry: {
@@ -65,13 +65,13 @@ class GalleryForm extends Component {
         <h4>Add new entries to the gallery:</h4>
         <div className="form-group">
           <label for="imagePath">Image Path</label>
-          <input className="form-control" id="imagePath" placeholder="images/gracie.jpg" 
-          onChange={this.storePath} value={this.state.newEntry.path} />
+          <input className="form-control" id="imagePath" placeholder="images/gracie.jpg"
+            onChange={this.storePath} value={this.state.newEntry.path} />
         </div>
         <div className="form-group">
           <label for="imagePath">Image Description</label>
-          <input className="form-control" id="imageDescription" placeholder="This is my cat!" 
-          onChange={this.storeDescription} value={this.state.newEntry.description}/>
+          <input className="form-control" id="imageDescription" placeholder="This is my cat!"
+            onChange={this.storeDescription} value={this.state.newEntry.description} />
 
         </div>
         <input type="submit" value="submit" />

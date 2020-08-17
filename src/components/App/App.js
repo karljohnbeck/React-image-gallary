@@ -7,7 +7,7 @@ import './library/bootstrap.css'
 
 class App extends Component {
 
-// the list of image data
+  // the list of image data
   state = {
     galleryList: [],
   }
@@ -32,15 +32,15 @@ class App extends Component {
       })
   }
 
- // whenever you like a image, axios, go and add 1 to the count
+  // whenever you like a image, axios, go and add 1 to the count
   smashThatLikeButton = (id) => {
     console.log('wahoooooooooo', id)
     Axios.put(`/gallery/like/${id}`)
-    .then(response => {
-      this.getGalleryList()
-    }).catch(error => {
-      console.log(error)
-    })
+      .then(response => {
+        this.getGalleryList()
+      }).catch(error => {
+        console.log(error)
+      })
   }
 
   // axios, put the new image on the database
@@ -48,23 +48,23 @@ class App extends Component {
   addToGallery = (newEntry) => {
     console.log(newEntry)
     Axios.post('/gallery', newEntry)
-    .then(response => {
-      this.getGalleryList()
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-    
-  // delete the imiage you clicked on
-    imageDelete = (id) => {
-      console.log('wahoooooooooo', id)
-      Axios.delete(`/gallery/${id}`)
       .then(response => {
         this.getGalleryList()
       }).catch(error => {
         console.log(error)
       })
-    };
+  }
+
+  // delete the imiage you clicked on
+  imageDelete = (id) => {
+    console.log('wahoooooooooo', id)
+    Axios.delete(`/gallery/${id}`)
+      .then(response => {
+        this.getGalleryList()
+      }).catch(error => {
+        console.log(error)
+      })
+  };
 
 
   render() {
@@ -73,15 +73,15 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
-        <br/>
-        
-        <GalleryForm addToGallery={this.addToGallery}/>
-        
+        <br />
+
+        <GalleryForm addToGallery={this.addToGallery} />
+
         <h4>Gallery Display</h4>
-        <GalleryList 
-        smashThatLikeButton={this.smashThatLikeButton}
-        galleryList={this.state.galleryList}
-        imageDelete={this.imageDelete} />
+        <GalleryList
+          smashThatLikeButton={this.smashThatLikeButton}
+          galleryList={this.state.galleryList}
+          imageDelete={this.imageDelete} />
 
       </div>
     )
